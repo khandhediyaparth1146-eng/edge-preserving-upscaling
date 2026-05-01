@@ -1,6 +1,13 @@
-# Real-Time Edge-Preserving Image Upscaling Engine
+# EDGE GEN: Edge-Preserving Image Reconstruction Platform 🔬🎨
 
-A high-performance image reconstruction system featuring a custom **CUDA kernel** and an optimized **NumPy-vectorized CPU fallback**. This project provides research-grade adaptive upscaling (up to 4x) that preserves sharp edges and enhances micro-textures, delivering superior visual fidelity compared to standard interpolation methods.
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/khandhediyaparth1146-eng/edge-preserving-upscaling)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/khandhediyaparth1146-eng/edge-preserving-upscaling&root-directory=frontend&env=VITE_API_URL)
+
+**EDGE GEN** is a high-precision, research-grade image upscaling engine featuring a Golden Standard Laplacian Pyramid synthesis model. It implements advanced structural preservation techniques, including Fast Guided Filtering and Iterative Back-Projection (IBP).
+
+## 🚀 One-Click Deployment
+1. **Backend:** Click the **Deploy to Render** button above.
+2. **Frontend:** Click the **Deploy with Vercel** button above.
 
 ---
 
