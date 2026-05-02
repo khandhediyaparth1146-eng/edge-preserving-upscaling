@@ -11,50 +11,45 @@
 
 ---
 
-## 🚀 Key Features
+## 📂 Project Structure
 
-This project implements several advanced Computer Vision techniques to achieve state-of-the-art upscaling quality:
-
-1.  **Lanczos4 Upscaling Engine:** Beyond standard bicubic, we utilize a high-order Lanczos4 kernel (64-pixel window) to achieve superior initial sharpness and significantly reduced aliasing.
-2.  **Scharr Gradient Intelligence:** High-precision edge detection using Scharr operators for superior derivative approximation, allowing the system to adaptively sharpen diagonal lines and fine details.
-3.  **Bilateral Noise Suppression:** Intelligent "edge-aware" noise filtering that cleans up grainy regions while strictly maintaining the integrity of sharp boundaries.
-4.  **CLAHE Detail Enhancement:** Integrated Contrast Limited Adaptive Histogram Equalization to pop micro-textures and local contrast, providing a high-definition perceptual output.
-5.  **Sigmoid-based Blending Logic:** Advanced blending using a mathematical Sigmoid transition to eliminate "halo" artifacts and ensure smooth transitions between edges and backgrounds.
-6.  **Full-Stack Comparison Dashboard:** A live React/FastAPI interface for real-time testing, side-by-side evaluation, and performance metrics (PSNR/SSIM).
+```bash
+├── backend/            # FastAPI Server & Python Core
+│   ├── core/           # Golden Standard Upscale Engine
+│   └── main.py         # API Endpoints
+├── frontend/           # React + Vite Dashboard
+│   ├── src/components/ # Dashboard UI Components
+│   └── src/hooks/      # Upscale & Auth Hooks
+├── cuda/               # High-Performance C++ Kernels
+├── docs/               # Academic Research & Documentation
+│   └── RESEARCH_PAPER.md
+├── docker/             # Containerization Config
+├── scripts/            # Evaluation & Testing Utilities
+└── render.yaml         # Deployment Manifest
+```
 
 ---
 
-## 🛠️ Architecture
+## 📊 Research & Methodology
 
-- **Frontend:** Premium UI built with **React**, **Tailwind CSS**, and **Framer Motion**.
-- **Backend:** High-throughput **FastAPI** server with asynchronous image processing.
-- **Engine:** Hybrid backend that detects hardware capabilities:
-    - **CUDA:** Per-pixel adaptive kernel for NVIDIA GPUs.
-    - **CPU Fallback:** Optimized NumPy/OpenCV pipeline for cross-platform support.
+The **Golden Standard** engine utilizes a Multi-Scale Laplacian Pyramid approach combined with Fast Guided Filtering and Iterative Back-Projection (IBP). For a deep dive into the mathematical formulations (PSNR, SSIM, MSE), please refer to the full **[Research Paper](docs/RESEARCH_PAPER.md)**.
 
 ---
 
-## ⚡ Setup & Installation
+## 🛠️ Local Development
 
-### 1. Backend Setup
+### 1. Backend
 ```bash
-cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python main.py
+cd backend && pip install -r requirements.txt && python main.py
 ```
 
-### 2. Frontend Setup
+### 2. Frontend
 ```bash
-cd frontend
-npm install
-npm run dev
+cd frontend && npm install && npm run dev
 ```
 
-### 3. Docker Deployment
+### 3. Docker
 ```bash
-# To run the full stack via Docker
 docker compose -f docker/docker-compose.yml up --build
 ```
 
