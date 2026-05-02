@@ -4,9 +4,9 @@ services:
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
-    rootDirectory: backend
+    rootDir: backend
     envVars:
       - key: MONGODB_URL
-        sync: false # You will enter this on the Render site
+        sync: false
       - key: SECRET_KEY
         generateValue: true
