@@ -275,10 +275,10 @@ int edge_preserving_upscale(
     unsigned char *d_input = NULL, *d_output = NULL;
     float *d_grad_mag = NULL, *d_grad_dir = NULL;
 
-    CUDA_CHECK(cudaMalloc(&d_input, src_size));
-    CUDA_CHECK(cudaMalloc(&d_output, dst_size));
-    CUDA_CHECK(cudaMalloc(&d_grad_mag, grad_size));
-    CUDA_CHECK(cudaMalloc(&d_grad_dir, grad_size));
+    CUDA_CHECK(cudaMalloc((void**)&d_input, src_size));
+    CUDA_CHECK(cudaMalloc((void**)&d_output, dst_size));
+    CUDA_CHECK(cudaMalloc((void**)&d_grad_mag, grad_size));
+    CUDA_CHECK(cudaMalloc((void**)&d_grad_dir, grad_size));
     CUDA_CHECK(cudaMemcpy(d_input, h_input, src_size, cudaMemcpyHostToDevice));
 
     cudaEvent_t start, stop;
@@ -340,8 +340,8 @@ int standard_bicubic_upscale(
 
     unsigned char *d_input = NULL, *d_output = NULL;
 
-    CUDA_CHECK(cudaMalloc(&d_input, src_size));
-    CUDA_CHECK(cudaMalloc(&d_output, dst_size));
+    CUDA_CHECK(cudaMalloc((void**)&d_input, src_size));
+    CUDA_CHECK(cudaMalloc((void**)&d_output, dst_size));
     CUDA_CHECK(cudaMemcpy(d_input, h_input, src_size, cudaMemcpyHostToDevice));
 
     cudaEvent_t start, stop;
